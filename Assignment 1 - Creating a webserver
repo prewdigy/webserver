@@ -36,7 +36,7 @@ Since Nginx doesn't start automatically run the command
 
 `sudo systemctl start nginx`
 
-Initially I got an error about a Nginx not starting due to a timeout.  ![timeout](/webserver/work project nginx status.png)
+Initially I got an error about a Nginx not starting due to a timeout.  !(/prewdigy/webserver/work project nginx status.png)
 
 I then ran 
 
