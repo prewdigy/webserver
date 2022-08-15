@@ -2,23 +2,25 @@
 # Creating a website
 
 ### Step 1 - Install a weberver
-I choose to use Nginx as my webserver, there are others to choose from but Nginx is free.  Once logged into the VM, I ran ` sudo yum update`  to make sure all the repos were up to date.  Then I ran `sudo yum install nginx` .  When the command was run, it stated
+I choose to use Nginx as my webserver, there are others to choose from but Nginx is free.  Once logged into the VM, I ran `sudo yum update`  to make sure all the repos were up to date.  Then I ran `sudo yum install nginx` .  When the command was run, it stated
 
 ```
+
 No match for argument: nginx
 Error: Unable to find a match: nginx
 
 ```
 
 Going to the Nginx Wiki you have to tell yum where to find the nginx repos by creating /etc/yum.repos.d/nginx.repo with the following content
-	\[nginx-stable\]
+	[nginx-stable]
 	name=nginx stable repo
 	baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
 	gpgcheck=1
 	enabled=1
 	gpgkey=https://nginx.org/keys/nginx_signing.key
 	module_hotfixes=true
-	\[nginx-mainline]
+	
+	[nginx-mainline]
 	name=nginx mainline repo
 	baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
 	gpgcheck=1
@@ -34,13 +36,13 @@ Since Nginx doesn't start automatically run the command
 
 `sudo systemctl start nginx`
 
-Initially I got an error about a Nginx not starting due to a timeout.  ![[work project nginx status.png]]
+Initially I got an error about a Nginx not starting due to a timeout.  ![timeout](work project nginx status.png)
 
 I then ran 
 
 `sudo systemctl status nginx` 
 
-to see if there was any better error messages explaining why it had timed out.  There were none so I just tried running the start command again and it worked.![[work project nginx status active.png]]
+to see if there was any better error messages explaining why it had timed out.  There were none so I just tried running the start command again and it worked.![it works](work project nginx status active.png)
 
 
 ### Step 3 - Configure firewall and initial connection test
